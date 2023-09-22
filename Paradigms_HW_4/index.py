@@ -8,7 +8,4 @@ ar2 = [1,5,2,1,1,1,1]
 print(ar1)
 print(ar2)
 
-def pearson_cor(array1, array2):
-    return pearsonr(array1, array2)
-
-print(pearson_cor(ar1, ar2))
+print(pearsonr(ar1, ar2))

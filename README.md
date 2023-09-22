@@ -1,4 +1,4 @@
-# Raradigms
+# Paradigms
 
 ## Paradigms_HW_1
 Задача №1\

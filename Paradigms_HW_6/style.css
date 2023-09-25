@@ -1,0 +1,38 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.container {
+  margin-top: 100px;
+  display: flex;
+  justify-content: left;
+  flex-direction: column;
+  align-items: center;
+}
+
+#timer {
+  font-size: 50px;
+  margin-bottom: 50px;
+}
+
+.btnBlock {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 35px;
+}
+svg:hover {
+  fill:black;
+  transition: 0.2s; 
+}
+
+svg:active {
+  fill:#cccecc;
+
+}
+
+a {
+  cursor: pointer;
+}

@@ -28,7 +28,7 @@
   gap: 35px;
 }
 svg:hover {
-  fill:black;
+  fill:#78c5c3;
   transition: 0.2s; 
 }
 

@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Jost:wght@500;600&family=Nova+Mono&display=swap');
+
 * {
   margin: 0;
   padding: 0;
@@ -13,8 +15,10 @@
 }
 
 #timer {
+  font-family: 'Nova Mono', monospace;
   font-size: 50px;
   margin-bottom: 50px;
+  color: #78c5c3;
 }
 
 .btnBlock {

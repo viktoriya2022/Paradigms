@@ -10,15 +10,21 @@
   <div class="container">
     <h1 id="timer">00:00:00.0</h1>
     <div class="btnBlock">
-      <a id="pauseBtn">
-        <svg xmlns="http://www.w3.org/2000/svg" height="2em" viewBox="0 0 512 512"><style>svg{fill:#626668}</style><path d="M464 256A208 208 0 1 0 48 256a208 208 0 1 0 416 0zM0 256a256 256 0 1 1 512 0A256 256 0 1 1 0 256zm224-72V328c0 13.3-10.7 24-24 24s-24-10.7-24-24V184c0-13.3 10.7-24 24-24s24 10.7 24 24zm112 0V328c0 13.3-10.7 24-24 24s-24-10.7-24-24V184c0-13.3 10.7-24 24-24s24 10.7 24 24z"/></svg>
-      </a>
-      <a id="startBtn">
-        <svg xmlns="http://www.w3.org/2000/svg" height="2em" viewBox="0 0 384 512"><style>svg{fill:#626668}</style><path d="M73 39c-14.8-9.1-33.4-9.4-48.5-.9S0 62.6 0 80V432c0 17.4 9.4 33.4 24.5 41.9s33.7 8.1 48.5-.9L361 297c14.3-8.7 23-24.2 23-41s-8.7-32.2-23-41L73 39z"/></svg>
-      </a>
-      <a id="resetBtn">
-        <svg xmlns="http://www.w3.org/2000/svg" height="2em" viewBox="0 0 512 512"><style>svg{fill:#626668}</style><path d="M463.5 224H472c13.3 0 24-10.7 24-24V72c0-9.7-5.8-18.5-14.8-22.2s-19.3-1.7-26.2 5.2L413.4 96.6c-87.6-86.5-228.7-86.2-315.8 1c-87.5 87.5-87.5 229.3 0 316.8s229.3 87.5 316.8 0c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0c-62.5 62.5-163.8 62.5-226.3 0s-62.5-163.8 0-226.3c62.2-62.2 162.7-62.5 225.3-1L327 183c-6.9 6.9-8.9 17.2-5.2 26.2s12.5 14.8 22.2 14.8H463.5z"/></svg>
-      </a>
+      <div class="startPauseBlock">
+        <a id="pauseBtn">
+          <svg xmlns="http://www.w3.org/2000/svg" height="2em" viewBox="0 0 512 512"><style>svg{fill:#626668}</style><path d="M464 256A208 208 0 1 0 48 256a208 208 0 1 0 416 0zM0 256a256 256 0 1 1 512 0A256 256 0 1 1 0 256zm224-72V328c0 13.3-10.7 24-24 24s-24-10.7-24-24V184c0-13.3 10.7-24 24-24s24 10.7 24 24zm112 0V328c0 13.3-10.7 24-24 24s-24-10.7-24-24V184c0-13.3 10.7-24 24-24s24 10.7 24 24z"/></svg>
+        </a>
+        <a 
+          id="startBtn" 
+          class="startBtn">
+            <svg id="start" xmlns="http://www.w3.org/2000/svg" height="2em" viewBox="0 0 384 512"><style>svg{fill:#626668}</style><path d="M73 39c-14.8-9.1-33.4-9.4-48.5-.9S0 62.6 0 80V432c0 17.4 9.4 33.4 24.5 41.9s33.7 8.1 48.5-.9L361 297c14.3-8.7 23-24.2 23-41s-8.7-32.2-23-41L73 39z"/></svg>
+        </a>
+      </div>
+      <div class="resetBlock">
+        <a id="resetBtn" >
+          <svg xmlns="http://www.w3.org/2000/svg" height="2em" viewBox="0 0 512 512"><style>svg{fill:#626668}</style><path d="M463.5 224H472c13.3 0 24-10.7 24-24V72c0-9.7-5.8-18.5-14.8-22.2s-19.3-1.7-26.2 5.2L413.4 96.6c-87.6-86.5-228.7-86.2-315.8 1c-87.5 87.5-87.5 229.3 0 316.8s229.3 87.5 316.8 0c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0c-62.5 62.5-163.8 62.5-226.3 0s-62.5-163.8 0-226.3c62.2-62.2 162.7-62.5 225.3-1L327 183c-6.9 6.9-8.9 17.2-5.2 26.2s12.5 14.8 22.2 14.8H463.5z"/></svg>
+        </a>
+      </div>
     </div>
   </div>
 
@@ -27,7 +33,7 @@
 <script>
 
 let timer = document.getElementById('timer');
-let startBtn = document.getElementById('startBtn');
+let startBtn = document.getElementById('start');
 let pauseBtn = document.getElementById('pauseBtn');
 let resetBtn = document.getElementById('resetBtn');
 
@@ -51,15 +57,20 @@ function updateTime() {
     hours++;
     minutes = 0;
   }
-  timer.textContent = `${hours.toString().padStart(2, '0')}:${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}.${decSec.toString().padStart(1, '0')}`;
+  timer.textContent = `${hours.toString().padStart(2, '0')}:${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}.${decSec.toString()}`;
 }
 
 startBtn.addEventListener('click', () => {
   interval = setInterval(updateTime, 100);
+  startBtn.style.display = 'none';
+  pauseBtn.style.visibility = 'initial';
 });
 
 pauseBtn.addEventListener('click', () => {
   clearInterval(interval);
+  start.setAttribute('disabled', false)
+  startBtn.style.display = '';
+  pauseBtn.style.visibility = 'hidden';
 });
 
 resetBtn.addEventListener('click', () => {
@@ -69,8 +80,12 @@ resetBtn.addEventListener('click', () => {
   minutes = 0;
   hours = 0;
   timer.textContent = '00:00:00.0';
+  startBtn.style.display = '';
+  pauseBtn.style.visibility = 'hidden';
 });
   </script>
 </body>
 </html>
+
+
 

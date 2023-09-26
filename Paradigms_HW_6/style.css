@@ -21,12 +21,24 @@
   color: #78c5c3;
 }
 
+#startBtn {
+  position: absolute;
+}
+
+#pauseBtn {
+  position: absolute;
+  visibility: hidden;
+}
+.startPauseBlock {
+position: relative;
+}
+
 .btnBlock {
+  gap: 60px;
   display: flex;
   justify-content: center;
-  align-items: center;
-  gap: 35px;
 }
+
 svg:hover {
   fill:#78c5c3;
   transition: 0.2s; 
@@ -36,7 +48,6 @@ svg:active {
   fill:#cccecc;
 
 }
-
 a {
   cursor: pointer;
 }
